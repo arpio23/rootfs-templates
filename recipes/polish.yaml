@@ -6,6 +6,19 @@
 architecture: {{ $architecture }}
 actions:
   - action: run
+    descrption: Add external repo for Motorola Sofia
+    chroot: true
+    comand: apt install -y curl
+    command: curl -sS https://deb.arpio.ca/aptkey.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/community-motorola-sofia.gpg
+    command: curl -sS -o /etc/apt/sources.list.d/comunity-motorola-sofia.list https://deb.arpio.ca/moto_sofia.list
+    command: apt update
+
+ - action: run
+    descrption: Install adaptation for Motorola sofia
+    chroot: true
+    command: apt install -y adaptation-motorola-sofia adaptation-motorola-sofia-configs
+  
+  - action: run
     descrption: Remove apt packages which are no longer unnecessary and delete downloaded packages
     chroot: true
     command: apt -y autoremove --purge && apt clean
