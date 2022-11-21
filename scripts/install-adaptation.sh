@@ -49,7 +49,6 @@ apt install -y curl
 curl -sS https://deb.arpio.ca/aptkey.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/community-motorola-sofia.gpg
 curl -sS -o /etc/apt/sources.list.d/comunity-motorola-sofia.list https://deb.arpio.ca/moto_sofia.list
 apt update
-apt install -y adaptation-motorola-sofia adaptation-motorola-sofia-configs
 
 tmpdir="$(mktemp -d)"
 trap cleanup EXIT
