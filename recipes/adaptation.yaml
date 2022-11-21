@@ -5,6 +5,14 @@ architecture: {{ $architecture }}
 actions:
 
  - action: run
-   chroot: true
-   description: Install device adaptation
-   script: ../scripts/install-adaptation.sh {{ $packages }}
+    descrption: Add external repo for Motorola Sofia
+    chroot: true
+    comand: apt install -y curl
+    command: curl -sS https://deb.arpio.ca/aptkey.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/community-motorola-sofia.gpg
+    command: curl -sS -o /etc/apt/sources.list.d/comunity-motorola-sofia.list https://deb.arpio.ca/moto_sofia.list
+    command: apt update
+
+ - action: run
+    descrption: Install adaptation for Motorola sofia
+    chroot: true
+    command: apt install -y adaptation-motorola-sofia adaptation-motorola-sofia-configs
