@@ -1,0 +1,6 @@
+Architectures: arm64
+Components: main sofia experimental testing
+Suites: bookworm
+Uris: https://deb.arpio.ca/debian
+Types: deb
+Signed-By: /var/lib/extrepo/keys/arpio.asc
