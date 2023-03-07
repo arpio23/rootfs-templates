@@ -35,6 +35,7 @@ actions:
     chroot: true
     description: install packages for the phone variant
     packages:
+      - phosh-config-hwcomposer
       - adaptation-hybris-api{{ $apilevel }}-phone
       - droidian-phosh-phone
 {{end}}
