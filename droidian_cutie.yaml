@@ -36,6 +36,7 @@ actions:
       - qt6-qpa-hwcomposer-plugin
       - plymouth-theme-droidian
       - qt6-wayland
+      - qtwayland5
 
 {{ if eq $variant "phone" }}
   - action: apt
