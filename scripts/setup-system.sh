@@ -23,5 +23,3 @@ fi
 if [ -f /usr/bin/cutie-settings-daemon ]; then
     systemctl enable cutie-settings-daemon.service
 fi
-
-rm -f /etc/systemd/system/android-service@hwcomposer.service.d/20-phosh.conf
