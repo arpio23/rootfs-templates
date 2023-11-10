@@ -16,10 +16,7 @@ if [ -f /usr/bin/phosh-session ]; then
     systemctl enable phosh.service
 fi
 
+# Load Cutie on startup if package is installed
 if [ -f /usr/bin/cutie-ui-io ]; then
     systemctl enable cutie-ui-io.service
-fi
-
-if [ -f /usr/bin/cutie-settings-daemon ]; then
-    systemctl enable cutie-settings-daemon.service
 fi

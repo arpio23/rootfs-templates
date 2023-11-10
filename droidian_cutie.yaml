@@ -1,6 +1,6 @@
 {{- $architecture := or .architecture "arm64" -}}
 {{- $apilevel := or .apilevel "28" -}}
-{{- $suite := "bookworm" -}}
+{{- $suite := "trixie" -}}
 {{- $version := or .version "nightly" -}}
 {{- $variant := or .variant "phone" -}}
 {{- $use_internal_repository := or .use_internal_repository "no" -}}
@@ -26,25 +26,17 @@ actions:
 
   - action: apt
     chroot: true
+    description: install cutie repos
+    packages:
+      - droidian-apt-config-cutie
+      - droidian-apt-config-cutie-staging
+      - cutie-archive-keyring
+
+  - action: apt
+    chroot: true
     description: install cutie
     packages:
-      - cutie-shell
-      - cutie-shell-config-hybris
-      - cutie-shell-config-mobile
-      - cutie-settings-daemon
-      - qml6-module-cutie
-      - cutie-settings
-      - cutie-music
-      - cutie-terminal
-      - cutie-browser
-      - qt6-qpa-hwcomposer-plugin
-      - plymouth-theme-droidian
-      - qt6-wayland
-      - qtwayland5
-      - cutie-camera
-      - qt5-cameraplugin-aal
-      - telegram-desktop
-      - fonts-noto-color-emoji
+      - droidian-cutie-full
 
 {{ if eq $variant "phone" }}
   - action: apt
@@ -52,8 +44,7 @@ actions:
     description: install packages for the phone variant
     packages:
       - adaptation-hybris-api{{ $apilevel }}-phone
-      - cutie-messaging
-      - cutie-phone
+      - droidian-cutie-phone
 {{end}}
 
 {{ if eq $version "nightly" }}
@@ -64,7 +55,6 @@ actions:
       - droidian-devtools
       - droidian-quirks-regenerate-ssh-keys
       - adaptation-hybris-devtools
-      - cutie-widget-playground
 {{end}}
 
   - action: run
