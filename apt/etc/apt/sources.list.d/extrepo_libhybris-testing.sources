@@ -1,6 +1,0 @@
-Architectures: amd64 arm64 armhf
-Components: main
-Suites: bookworm
-Uris: http://droidian-libhybris.repo.droidian.org/bookworm-libui-gralloc-eglcreateplatformwindowsurface/
-Types: deb
-Signed-By: /var/lib/extrepo/keys/hybris-mobian.asc
