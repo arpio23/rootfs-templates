@@ -45,6 +45,7 @@ actions:
     packages:
       - adaptation-hybris-api{{ $apilevel }}-phone
       - droidian-cutie-phone
+      - ofono2mm
 {{end}}
 
 {{ if eq $version "nightly" }}
