@@ -58,6 +58,12 @@ actions:
       - adaptation-hybris-devtools
 {{end}}
 
+  - action: apt
+    chroot: true
+    description: install droidian-extras
+    packages:
+      - droidian-extras
+
   - action: run
     description: Set up cutie
     chroot: true
