@@ -18,6 +18,11 @@ actions:
     description: Adding apt overlay
     destination: /
 
+  - action: overlay
+    source: ../../pre-overlay
+    description: Add extra overlay before setting-up repositories
+    destination: /
+
   - action: apt
     chroot: true
     description: install apt config
