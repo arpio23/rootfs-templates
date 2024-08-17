@@ -1,6 +1,7 @@
 {{- $architecture := or .architecture "arm64" -}}
 {{- $suite := "trixie" -}}
 {{- $use_internal_repository := or .use_internal_repository "no" -}}
+{{- $droidian_version := or .droidian_version "current" -}}
 
 architecture: {{ $architecture }}
 actions:
@@ -10,7 +11,7 @@ actions:
     components:
       - main
     keyring-file: ../apt/etc/apt/trusted.gpg.d/droidian-bootstrap.gpg
-    mirror: http://releases.droidian.org/snapshots/current
+    mirror: http://releases.droidian.org/snapshots/{{ $droidian_version }}
     variant: minbase
 
   - action: overlay
@@ -36,7 +37,7 @@ actions:
   - action: run
     description: Clean repositories
     chroot: true
-    script: ../scripts/clean-bootstrap-repositories.sh
+    script: ../scripts/clean-bootstrap-repositories.sh {{ $droidian_version }}
 
 {{ if eq $use_internal_repository "yes" }}
   - action: overlay

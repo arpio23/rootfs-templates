@@ -7,6 +7,7 @@
 {{- $edition := or .edition "phosh" -}}
 {{- $variant := or .variant "phone" -}}
 {{- $use_internal_repository := or .use_internal_repository "no" -}}
+{{- $droidian_version := or .droidian_version "current" -}}
 
 architecture: {{ $architecture }}
 actions:
@@ -20,6 +21,7 @@ actions:
       apilevel: {{ $apilevel }}
       version: {{ $version }}
       use_internal_repository: {{ $use_internal_repository }}
+      droidian_version: {{ $droidian_version }}
 
   - action: recipe
     description: Install device-specific packages

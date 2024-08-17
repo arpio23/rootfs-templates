@@ -4,6 +4,7 @@
 {{- $version := or .version "nightly" -}}
 {{- $variant := or .variant "phone" -}}
 {{- $use_internal_repository := or .use_internal_repository "no" -}}
+{{- $droidian_version := or .droidian_version "current" -}}
 
 {{- $username := or .username "droidian" -}}
 {{- $password := or .password "1234" -}}
@@ -20,6 +21,7 @@ actions:
       apilevel: {{ $apilevel }}
       suite: {{ $suite }}
       use_internal_repository: {{ $use_internal_repository }}
+      droidian_version: {{ $droidian_version }}
       username: {{ $username }}
       password: {{ $password }}
       hostname: {{ $hostname }}
