@@ -1,7 +1,7 @@
 {{- $architecture := or .architecture "arm64" -}}
 {{- $apilevel := or .apilevel "28" -}}
 {{- $suite := "trixie" -}}
-{{- $version := or .version "nightly" -}}
+{{- $version := or .version "next" -}}
 {{- $variant := or .variant "phone" -}}
 {{- $use_internal_repository := or .use_internal_repository "no" -}}
 {{- $droidian_version := or .droidian_version "current" -}}
@@ -50,10 +50,10 @@ actions:
       - cutie-phone-full
 {{end}}
 
-{{ if eq $version "nightly" }}
+{{ if eq $version "next" }}
   - action: apt
     chroot: true
-    description: install devtools (nightly)
+    description: install devtools (next)
     packages:
       - droidian-devtools
       - droidian-quirks-regenerate-ssh-keys
