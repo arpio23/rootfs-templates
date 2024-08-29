@@ -37,11 +37,11 @@ echo "Creating VG"
 vgcreate droidian "${DEVICE}"
 
 # Create LVs, currently
-# 1) droidian-persistent (32M)
+# 1) droidian-persistent (128M)
 # 2) droidian-reserved (32M)
 # 3) droidian-rootfs (rest)
 echo "Creating LVs"
-lvcreate --zero n -L 32M -n droidian-persistent droidian
+lvcreate --zero n -L 128M -n droidian-persistent droidian
 lvcreate --zero n -L 32M -n droidian-reserved droidian
 lvcreate --zero n -l 100%FREE -n droidian-rootfs droidian
 
