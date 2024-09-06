@@ -110,13 +110,17 @@ vbmeta=$(find ${ROOTFS_PATH}/boot -iname vbmeta.img* -type f | head -n 1)
 [ -e "${dtbo}" ] && cp "${dtbo}" ${WORK_DIR}/target/data/dtbo.img
 [ -e "${vbmeta}" ] && cp "${vbmeta}" ${WORK_DIR}/target/data/vbmeta.img
 
-kernel_version=$(basename ${bootimage})
-kernel_version=${kernel_version/boot.img-//}
+if [ -e "${bootimage}" ]; then
+	kernel_version=$(basename ${bootimage})
+	kernel_version=${kernel_version/boot.img-//}
 
-cat \
-	${ROOTFS_PATH}/usr/lib/flash-bootimage/flash-bootimage.conf \
-	${ROOTFS_PATH}/usr/lib/flash-bootimage/${kernel_version}.conf \
-	> ${WORK_DIR}/target/data/device-configuration.conf
+	cat \
+		${ROOTFS_PATH}/usr/lib/flash-bootimage/flash-bootimage.conf \
+		${ROOTFS_PATH}/usr/lib/flash-bootimage/${kernel_version}.conf \
+		> ${WORK_DIR}/target/data/device-configuration.conf
+else
+	touch ${WORK_DIR}/target/data/device-configuration.conf
+fi
 
 # generate zip
 echo "Generating zip"
