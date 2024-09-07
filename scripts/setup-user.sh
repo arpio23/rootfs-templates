@@ -16,6 +16,7 @@ adduser $USERNAME bluetooth
 adduser $USERNAME plugdev
 adduser $USERNAME input
 adduser $USERNAME dialout
+adduser $USERNAME netdev
 
 echo "$USERNAME:$PASSWORD" | chpasswd
 
