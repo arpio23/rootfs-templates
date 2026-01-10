@@ -30,9 +30,9 @@ actions:
 
   - action: apt
     chroot: true
-    description: install droidian-phosh
+    description: install droidian-plamo-wf-full
     packages:
-      - droidian-phosh-full
+      - droidian-plamo-wf-full
 
 {{ if eq $variant "phone" }}
   - action: apt
@@ -40,7 +40,6 @@ actions:
     description: install packages for the phone variant
     packages:
       - adaptation-hybris-api{{ $apilevel }}-phone
-      - droidian-phosh-phone
 {{end}}
 
 {{ if eq $version "next" }}
@@ -53,14 +52,7 @@ actions:
       - adaptation-hybris-devtools
 {{end}}
 
-  - action: apt
-    chroot: true
-    description: install droidian-extras
-    packages:
-      - droidian-extras
-
   - action: run
     description: clean droidian-phosh
     chroot: true
     script: scripts/clean.sh
-
