@@ -53,5 +53,4 @@ actions:
   - action: run
     description: clean droidian-noui
     chroot: true
-    script: scripts/clean-phosh.sh
-
+    script: scripts/clean.sh
